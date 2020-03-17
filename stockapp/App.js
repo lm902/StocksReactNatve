@@ -1,19 +1,30 @@
 import React from 'react';
+import axios from 'axios';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class App extends React.Component {
+  state = {
+    stocks:[]
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+componentDidMount(){
+var 
+axios.get(`https://finnhub.io/api/v1/stock/profile?symbol=AAPL&token=bpo09nfrh5ra872e0oi0`)
+.then(res=>{
+    // const stocks = res.data;
+    // this.setstate({stocks});
+    console.log(res.data);
+    });
+}
+render() {
+  return(
+      <div>
+        tets
+     
+      </div>
+          
+      
+  )
+}
+}
+
