@@ -8,8 +8,7 @@ export default class App extends React.Component {
 }
 
 componentDidMount(){
-var 
-axios.get(`https://finnhub.io/api/v1/stock/profile?symbol=AAPL&token=bpo09nfrh5ra872e0oi0`)
+var axios.get(`https://finnhub.io/api/v1/stock/profile?symbol=AAPL&token=bpo09nfrh5ra872e0oi0`)
 .then(res=>{
     // const stocks = res.data;
     // this.setstate({stocks});
