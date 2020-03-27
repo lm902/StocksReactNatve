@@ -1,15 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Login from "./components/authentication/Login";
-import Register from "./components/authentication/Register";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Buy from "./src/components/buySell/Buy.js"
+// import GetAPI from "./src/api/GetAPI.js";
+// import Login from "./components/authentication/Login";
+// import Register from "./components/authentication/Register";
+// import Portfolio from './screens/Portfolio';
+// import Detail from './screens/Detail';
 
-import GetAPI from "./api/GetAPI";
+const Stack = createStackNavigator();
+
 export default function App() {
   return (
-    <Router>
-      <Route path="/" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/portfolio" component={GetAPI} />
-    </Router>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Buy" component={Buy} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
