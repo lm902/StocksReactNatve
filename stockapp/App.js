@@ -1,29 +1,14 @@
-import React from 'react';
-import axios from 'axios';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default class App extends React.Component {
-  state = {
-    stocks:[]
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import GetAPI from "./components/GetAPI";
+export default function App() {
+  return (
+    <Router>
+      <Route path="/" component={Login} />
+      <Route path="/register" component={Register} />
+      <Route path="/getinfo" component={GetAPI} />
+    </Router>
+  );
 }
-
-componentDidMount(){
-var axios.get(`https://finnhub.io/api/v1/stock/profile?symbol=AAPL&token=bpo09nfrh5ra872e0oi0`)
-.then(res=>{
-    // const stocks = res.data;
-    // this.setstate({stocks});
-    console.log(res.data);
-    });
-}
-render() {
-  return(
-      <div>
-        tets
-     
-      </div>
-          
-      
-  )
-}
-}
-
