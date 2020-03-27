@@ -14,7 +14,7 @@ function AppNavigator() {
     return (
         <NavigationContainer>
         <Stack.Navigator 
-        initialRouteName="Buy"
+        initialRouteName="Login"
         screenOptions={{gestureEnabled: true}}
         >
             <Stack.Screen 

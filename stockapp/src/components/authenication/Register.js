@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Alert, Button, TextInput, View, StyleSheet, Image, Text, TouchableText } from 'react-native';
+import Colors from '../../constants/Colors'
 
  export default class Register extends Component {
      constructor(props) {
@@ -45,7 +46,7 @@ render() {
             <View style={styles.buttonView}>
             <Button
             title={'Register'}
-            color="#7174d8"
+            color={Colors.PURPLE}
             onPress={this.onSubmit.bind(this)}
             />
             </View>
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
+      backgroundColor: Colors.BACKGROUND_COLOR,
     },
     input: {
       width: 200,
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     link: {
-        color: '#2096F3'
+        color: Colors.LINK_BLUE
     },
     buttonView: {
         width: 200
