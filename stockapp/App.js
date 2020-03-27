@@ -1,10 +1,7 @@
 import React from 'react';
 //import axios from 'axios';
 import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Register from './src/components/authenication/Register'
-import Login from './src/components/authenication/Login'
+import AppNavigator from './src/nav/AppNavigation';
 
 // export default class App extends React.Component {
 //   state = {
@@ -22,24 +19,9 @@ import Login from './src/components/authenication/Login'
 
 // For testing Nav Purposes
 
-function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      {/* <Text>Home Screen</Text> */}
-      <Login />
-    </View>
-  );
-}
-
-const Stack = createStackNavigator();
-
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AppNavigator />
   );
 }
 
