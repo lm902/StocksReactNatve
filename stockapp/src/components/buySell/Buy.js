@@ -1,18 +1,29 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, Button } from "react-native";
+import { SafeAreaView, Text, Button, TextInput } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
-import { Input } from "react-native-elements";
+// import StkMobile from "../../../../../stk-mobile";
 
 export default function Buy() {
   const [currentValue, setCurrentValue] = useState({});
-  const [quantity, setQuantity] = useState({});
-  const [total, setTotal] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [total, setTotal] = useState(0);
 
-  function handleQuantity(e) {
-    setQuantity(e.target.value);
-  }
-  function totalQuantity(e) {
-    setTotal(JSON.parse(quantity * currentValue));
+  function handleQuantity(value) {
+    let quantity = 0;
+
+    if (value) {
+      quantity = value;
+    }
+    // else {
+    //   setQuantity(value);
+    // }
+    setTotal(quantity * currentValue.c);
+    setQuantity(quantity);
+
+    console.log("popopou");
+    console.log(currentValue.c);
+    console.log(quantity);
+    console.log(value);
   }
 
   const BASE = "https://finnhub.io/api/v1/quote?symbol=";
@@ -30,13 +41,13 @@ export default function Buy() {
             `${BASE}${TICKER}&token=bpo09nfrh5ra872e0oi0`,
             requestOptions
           )
-            .then(response => response.json())
-            .then(result => {
+            .then((response) => response.json())
+            .then((result) => {
               if (isActive) {
                 setCurrentValue(result);
               }
             })
-            .catch(error => console.log("error", error));
+            .catch((error) => console.log("error", error));
         } catch (err) {
           throw err;
         }
@@ -51,22 +62,25 @@ export default function Buy() {
   return (
     <SafeAreaView>
       <Text>
-        {" "}
         {TICKER} Current Value: ${!!currentValue && currentValue.c}
       </Text>
 
       <Text> Quantity: </Text>
 
-      <Input
+      <TextInput
         onSubmit={handleQuantity}
-        name="quantity"
-        placeholder="Quantity"
+        name='quantity'
+        placeholder='Quantity'
         value={quantity}
-        onChange={handleQuantity}
+        onChangeText={handleQuantity}
       />
-      <Text onChange={totalQuantity}>Total: ${total} </Text>
-      <Button title="Cancel" />
-      <Button title="Buy" />
+      {/* <Button title='submit' type='submit'>
+        Submit
+      </Button> */}
+      <Text onChange={handleQuantity}>Total: ${total} </Text>
+
+      <Button title='Cancel' />
+      <Button title='Buy' />
     </SafeAreaView>
   );
 }

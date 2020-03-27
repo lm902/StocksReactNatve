@@ -1,5 +1,10 @@
 import React, {Component} from 'react'
+<<<<<<< HEAD
 import { Alert, Button, TextInput, View, StyleSheet, Image, Text } from 'react-native';
+=======
+import { Alert, Button, TextInput, View, StyleSheet, Image, Text, TouchableText } from 'react-native';
+import Colors from '../../constants/Colors'
+>>>>>>> 5d1a92534a07674abe4c537f82f6a613c592869f
 
  export default class Register extends Component {
      constructor(props) {
@@ -44,8 +49,12 @@ render() {
             style={styles.input} />
             <Button
             title={'Register'}
+<<<<<<< HEAD
             color="#7174d8"
             style={styles.input}
+=======
+            color={Colors.PURPLE}
+>>>>>>> 5d1a92534a07674abe4c537f82f6a613c592869f
             onPress={this.onSubmit.bind(this)}
             />
             <Text style={styles.link}>Already have an account? Sign in</Text>
@@ -59,7 +68,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
+      backgroundColor: Colors.BACKGROUND_COLOR,
     },
     input: {
       width: 200,
@@ -79,5 +88,14 @@ const styles = StyleSheet.create({
     link: {
         fontSize: 12,
         textAlign: "center"
+<<<<<<< HEAD
+=======
+    },
+    link: {
+        color: Colors.LINK_BLUE
+    },
+    buttonView: {
+        width: 200
+>>>>>>> 5d1a92534a07674abe4c537f82f6a613c592869f
     }
   });
