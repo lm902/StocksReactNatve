@@ -1,0 +1,10 @@
+{
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 35573,
+  "expoServerNgrokUrl": "https://rd-aab.athenakozak.stockapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.rd-aab.athenakozak.stockapp.exp.direct",
+  "ngrokPid": 35584,
+  "webpackServerPort": null
+}
