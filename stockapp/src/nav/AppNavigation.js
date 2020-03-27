@@ -6,6 +6,7 @@ import Profile from '../components/profile/Profile'
 import StockList from '../components/stockViews/StockList'
 import Sell from '../components/buySell/Sell'
 import Buy from '../components/buySell/Buy'
+import WatchList from '../components/watchlist/WatchList'
 import React from 'react';
 
 const Stack = createStackNavigator ();
@@ -40,6 +41,10 @@ function AppNavigator() {
             <Stack.Screen 
                 name="Buy"
                 component={Buy}
+            />
+            <Stack.Screen 
+                name="WatchList"
+                component={WatchList}
             />
         </Stack.Navigator>
         </NavigationContainer>
