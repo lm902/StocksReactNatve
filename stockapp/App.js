@@ -3,6 +3,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Register from './src/components/authenication/Register'
+import Login from './src/components/authenication/Login'
 
 // export default class App extends React.Component {
 //   state = {
@@ -18,10 +20,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 //     });
 // }
 
+// For testing Nav Purposes
+
 function HomeScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+    <View style={styles.container}>
+      {/* <Text>Home Screen</Text> */}
+      <Login />
     </View>
   );
 }
@@ -31,7 +36,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -40,3 +45,12 @@ function App() {
 
 export default App;
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#444'
+  },
+});

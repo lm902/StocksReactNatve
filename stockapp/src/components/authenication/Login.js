@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Alert, Button, TextInput, View, StyleSheet, Image } from 'react-native';
+import { Alert, Button, TextInput, View, StyleSheet, Image, Text} from 'react-native';
 
 export default class Login extends Component {
     constructor(props) {
