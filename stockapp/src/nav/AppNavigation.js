@@ -4,6 +4,8 @@ import Register from '../components/authenication/Register';
 import Login from '../components/authenication/Login';
 import Profile from '../components/profile/Profile'
 import StockList from '../components/stockViews/StockList'
+import Sell from '../components/buySell/Sell'
+import Buy from '../components/buySell/Buy'
 import React from 'react';
 
 const Stack = createStackNavigator ();
@@ -12,7 +14,7 @@ function AppNavigator() {
     return (
         <NavigationContainer>
         <Stack.Navigator 
-        initialRouteName="Profile"
+        initialRouteName="Buy"
         screenOptions={{gestureEnabled: true}}
         >
             <Stack.Screen 
@@ -30,6 +32,14 @@ function AppNavigator() {
             <Stack.Screen 
                 name="StockList"
                 component={StockList}
+            />
+            <Stack.Screen 
+                name="Sell"
+                component={Sell}
+            />
+            <Stack.Screen 
+                name="Buy"
+                component={Buy}
             />
         </Stack.Navigator>
         </NavigationContainer>
