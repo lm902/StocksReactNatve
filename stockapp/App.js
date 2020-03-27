@@ -8,7 +8,7 @@ export default function App() {
     <Router>
       <Route path="/" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/getinfo" component={GetAPI} />
+      <Route path="/portfolio" component={GetAPI} />
     </Router>
   );
 }
