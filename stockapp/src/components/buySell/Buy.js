@@ -61,9 +61,7 @@ export default function Buy() {
       <Text>
         {TICKER} Current Value: ${!!currentValue && currentValue.c}
       </Text>
-
       <Text> Quantity: </Text>
-
       <TextInput
         onSubmit={handleQuantity}
         name='quantity'
