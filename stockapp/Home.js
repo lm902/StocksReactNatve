@@ -8,6 +8,7 @@ import Colors from './src/constants/Colors'
 
 import Buy from './src/components/buySell/Buy'
 import Sell from './src/components//buySell/Sell'
+import StockDetail from './src/components/stockViews/StockDetail'
 
 const Tab = createBottomTabNavigator();
 
@@ -38,7 +39,7 @@ export default function Home() {
       >
         <Tab.Screen name="Search" component={Search} />
         <Tab.Screen name="WatchList" component={WatchList} />
-        <Tab.Screen name="Portfolio" component={Portfolio} />
+        <Tab.Screen name="Portfolio" component={StockDetail} />
       </Tab.Navigator>
   );
 }
