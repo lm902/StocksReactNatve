@@ -24,7 +24,7 @@ export default function Buy() {
   }
 
   const BASE = "https://finnhub.io/api/v1/quote?symbol=";
-  const TICKER = "AAPL";
+  const TICKER = "MSFT";
   useFocusEffect(
     React.useCallback(() => {
       let isActive = true;
