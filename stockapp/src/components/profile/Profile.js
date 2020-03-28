@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Text, View, StyleSheet} from 'react-native'
+import {Text, View, StyleSheet, SafeAreaView} from 'react-native'
 import StockList from '../stockViews/StockList'
 
 export default class Profile extends Component {
@@ -9,9 +9,12 @@ export default class Profile extends Component {
 
 render() {
     return (
+        <SafeAreaView style={styles.container}>
         <View>
+            <Text style={styles.text}>You are on profile</Text>
             <StockList />
         </View>
+        </SafeAreaView>
     )
 }
 }
@@ -21,5 +24,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#ecf0f1',
+    },
+    text: {
+        textAlign: 'center'
     }
 });
