@@ -5,7 +5,8 @@ const Colors = {
     LIGHT_PURPLE: '#D8D9F2',
     RED: '#ff6b68',
     GREEN: '#5ecba1',
-    LINK_BLUE: '#2096F3'
+    LINK_BLUE: '#2096F3',
+    GREY: '#97a0a7'
 }
 
 export default Colors;
