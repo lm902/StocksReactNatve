@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Alert, Button, TextInput, View, StyleSheet, Image, Text, TouchableText } from 'react-native';
+import { Alert, Button, TextInput, View, StyleSheet, Image, Text, Dimensions, SafeAreaView } from 'react-native';
 import Colors from '../../constants/Colors'
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -23,7 +23,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 render() { 
     return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Image
             source={require('../../../assets/logo-dark.png')}
             style={styles.logo}
@@ -53,7 +53,7 @@ render() {
             />
             </View>
             <Text style={styles.linkText}>Already have an account? <Text style={styles.link} onPress={() => {this.props.navigation.navigate('Login')}}>Sign in</Text> </Text>
-        </View>
+        </SafeAreaView>
     )
 }
 

@@ -1,6 +1,6 @@
  
 import React, { useState } from "react";
-import { SafeAreaView, Text, Button, TextInput,StyleSheet, View } from "react-native";
+import { SafeAreaView, Text, Button, TextInput,StyleSheet, View, Dimensions } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 import Colors from '../../constants/Colors'
 // import StkMobile from "../../../../../stk-mobile";
@@ -62,25 +62,33 @@ export default function Buy() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text stlye={styles.ticker}>{TICKER}</Text>
-      <Text style={styles.stockName}>{stockName}</Text>
+      <Text style={styles.tickerText}>{TICKER}</Text>
+  <Text style={styles.stockName}>Microsoft</Text>
       <Text style={styles.stockValue}> Current Value: ${!!currentValue && currentValue.c}
       </Text>
-      <View stlye={styles.quantity}>
-        <Text> Quantity: </Text>
         <TextInput
+          style={styles.input}
           onSubmit={handleQuantity}
           name='quantity'
           placeholder='Quantity'
           value={quantity}
           onChangeText={handleQuantity}
         />
-        <Text onChange={handleQuantity}>Total: ${total} </Text>
-      </View>
+        <Text onChange={handleQuantity} style={styles.total}>Total: ${total} </Text>
 
-    <View stlye={styles.buttons}>
-      <Button title='Cancel' />
-      <Button title='Buy' />
+    <View style={styles.buttonContainer}>
+      <View style={styles.buttonView}>
+      <Button 
+      style={styles.cancel} 
+      color={Colors.RED}
+      title='Cancel' />
+      </View>
+      <View style={styles.buttonView}>
+      <Button 
+      style={styles.buy} 
+      color={Colors.GREEN}
+      title='Buy' />
+      </View>
     </View>
     </SafeAreaView>
   );
@@ -89,33 +97,56 @@ export default function Buy() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    //alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.BACKGROUND_COLOR,
+    paddingHorizontal: 40
+  },
+  tickerText: {
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: 34,
+    textAlign:"right",
+    color: '#555'
+  },
+  stockName: {
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    textAlign:'left',
+    marginTop: 30,
+    marginBottom: 30,
+    fontSize: 22,
+    color: '#444'
+  },
+  stockValue: {
+    textAlign:'center',
+    fontSize: 15,
+    marginBottom: 30,
+    color: '#555'
   },
   input: {
-    width: 200,
-    height: 44,
+    width: 100,
+    height: 35,
     padding: 10,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#222',
     marginBottom: 10,
+    alignSelf: 'center',
+    marginBottom: 20
   },
-  logo: {
-      width: 100, 
-      height: 100, 
-      borderRadius: 100/2,
-      alignSelf: "center",
-      marginBottom: 30
+  total: {
+    textAlign:'center',
+    fontSize: 18,
+    marginBottom: 30,
+    color: '#555'
   },
-  linkText: {
-      fontSize: 12,
-      textAlign: "center"
-  },
-  link: {
-      color: Colors.LINK_BLUE
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: "space-around"
   },
   buttonView: {
-      width: 200
+    width: '40%'
   }
+
+
 });

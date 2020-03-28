@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Alert, Button, TextInput, View, StyleSheet, Image, Text, TouchableOpac} from 'react-native';
+import { Alert, Button, TextInput, View, StyleSheet, Image, Text, SafeAreaView} from 'react-native';
 import Colors from '../../constants/Colors'
 import Home from '../../../Home'
 
@@ -23,7 +23,7 @@ onSubmit() {
  render() {
     
      return(
-         <View style={styles.container}>
+         <SafeAreaView style={styles.container}>
              <Image
              source={require('../../../assets/logo-dark.png')}
              style={styles.logo}
@@ -47,7 +47,7 @@ onSubmit() {
             />
             </View>
             <Text style={styles.linkText}>Don't have an account? <Text style={styles.link} onPress={() => {this.props.navigation.navigate("Register")}}>Register</Text> </Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
