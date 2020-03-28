@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import { Alert, Button, TextInput, View, StyleSheet, Image, Text} from 'react-native';
+import { Alert, Button, TextInput, View, StyleSheet, Image, Text, TouchableOpac} from 'react-native';
 import Colors from '../../constants/Colors'
+import Home from '../../../Home'
 
 export default class Login extends Component {
     constructor(props) {
@@ -12,13 +13,15 @@ export default class Login extends Component {
     }
 }
 
+static navigationOptions = { title: 'Login'}
+
 onSubmit() {
     const { email, password } = this.state;
-    Alert.alert('Credentials', `${email} + ${password}`)
-    this.signup(email, password)
+    this.props.navigation.navigate('Home')
  }
  
  render() {
+    
      return(
          <View style={styles.container}>
              <Image

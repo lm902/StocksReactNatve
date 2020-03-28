@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Alert, Button, TextInput, View, StyleSheet, Image, Text, TouchableText } from 'react-native';
 import Colors from '../../constants/Colors'
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
  export default class Register extends Component {
      constructor(props) {
@@ -13,13 +14,14 @@ import Colors from '../../constants/Colors'
      }
  }
 
+ static navigationOptions = { title: 'Register'}
+
  onSubmit() {
     const { email, password } = this.state;
-    Alert.alert('Credentials', `${email} + ${password}`)
-    this.signup(email, password)
+    this.props.navigation.navigate('Home')
 }
 
-render() {
+render() { 
     return(
         <View style={styles.container}>
             <Image
