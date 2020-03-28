@@ -38,7 +38,7 @@ export default function Home() {
       >
         <Tab.Screen name="Search" component={Search} />
         <Tab.Screen name="WatchList" component={WatchList} />
-        <Tab.Screen name="Portfolio" component={Buy} />
+        <Tab.Screen name="Portfolio" component={Portfolio} />
       </Tab.Navigator>
   );
 }
