@@ -15,8 +15,8 @@ export default function App() {
       <Stack.Navigator>
         {/* <Stack.Screen name="Register" component={Register} /> */}
         {/* <Stack.Screen name="Login" component={Login} /> */}
-        <Stack.Screen name="Buy" component={Buy} />
-        <Stack.Screen name="Sell" component={Sell} />
+        <Stack.Screen name='Buy' component={Buy} />
+        <Stack.Screen name='Sell' component={Sell} />
       </Stack.Navigator>
     </NavigationContainer>
   );

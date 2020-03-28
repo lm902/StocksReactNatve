@@ -14,13 +14,10 @@ export default function Buy() {
     if (value) {
       quantity = value;
     }
-    // else {
-    //   setQuantity(value);
-    // }
+
     setTotal(quantity * currentValue.c);
     setQuantity(quantity);
 
-    console.log("popopou");
     console.log(currentValue.c);
     console.log(quantity);
     console.log(value);
@@ -74,9 +71,7 @@ export default function Buy() {
         value={quantity}
         onChangeText={handleQuantity}
       />
-      {/* <Button title='submit' type='submit'>
-        Submit
-      </Button> */}
+
       <Text onChange={handleQuantity}>Total: ${total} </Text>
 
       <Button title='Cancel' />
