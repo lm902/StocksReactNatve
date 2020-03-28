@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://r9-wrd.anonymous.stockapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.r9-wrd.anonymous.stockapp.exp.direct",
-  "ngrokPid": 63659
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
