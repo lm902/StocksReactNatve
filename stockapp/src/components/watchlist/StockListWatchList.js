@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import {Text, View, StyleSheet, FlatList, SafeAreaView, TouchableOpacity} from 'react-native'
+import {StyleSheet, FlatList, SafeAreaView, TouchableOpacity, View} from 'react-native'
 import Colors from '../../constants/Colors'
-import StockItem from './StockItem'
+import StockItem from '../stockViews/StockItem'
+import {Ionicons} from '@expo/vector-icons'
 
-const StockList = ({navigation}) => {
+const StockListWatchList = ({navigation}) => {
 
 const stocks = [
     { ticker: 'MFST', name: 'Microsoft', currentValue: '149.70' },
@@ -16,6 +17,10 @@ const stocks = [
     { ticker: 'GOOGL', name: 'Google',currentValue: '1110.48' }
 ]
 
+    // REPLACE THESE WITH DYNAMIC VALUES
+    const iconName = 'ios-heart'
+    const size = 20
+    const color = Colors.DARK_PURPLE
 
 // const showDetail = (stock) => {
 //     navigation.navigate('StockDetail', stock)
@@ -32,10 +37,23 @@ return (
         data={stocks}
         renderItem={({item}) => {
             return(
-                <TouchableOpacity onPress={() => navigation.navigate('StockDetail')}>
+                <View style={styles.stockContainer}>
+                <Ionicons 
+                    style={styles.icon}
+                    name={iconName} 
+                    size={size} 
+                    color={color} />
+                <View 
+                    stlye={styles.stockItem}
+                    flexGrow={1}
+                >
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('StockDetail')}>
                 {/* <TouchableOpacity onPress={() => showDetail().bind(this)}>  */}
                     <StockItem stock={item} />
                 </TouchableOpacity>
+                </View>
+                </View>
             );
         }} />
     </SafeAreaView>
@@ -45,11 +63,20 @@ return (
 
 const styles = StyleSheet.create({
     container: {
-    //   flex: 1,
-    //   alignItems: 'center',
-    //   justifyContent: 'center',
-      //backgroundColor: Colors.BACKGROUND_COLOR,
+
+    },
+    stockContainer: {
+        flexDirection: 'row',
+        flex: 1
+    },
+    icon: {
+        alignSelf: 'flex-start',
+        paddingRight: 20,
+    },
+    stockItem: {
+        //flexGrow: 1,
+       //flex: 0
     }
 });
 
-export default StockList;
+export default StockListWatchList;

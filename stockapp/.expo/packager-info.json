@@ -2,8 +2,8 @@
   "expoServerPort": 19000,
   "expoServerNgrokUrl": "https://cq-jde.athenakozak.stockapp.exp.direct",
   "packagerNgrokUrl": "https://packager.cq-jde.athenakozak.stockapp.exp.direct",
-  "ngrokPid": 73639,
+  "ngrokPid": 81355,
   "devToolsPort": 19002,
   "packagerPort": 19003,
-  "packagerPid": 73629
+  "packagerPid": 81343
 }

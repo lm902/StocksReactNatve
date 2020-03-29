@@ -6,12 +6,10 @@ import Colors from '../../constants/Colors'
 import {Ionicons} from '@expo/vector-icons'
 // import StkMobile from "../../../../../stk-mobile";
 
-export default function StockDetail() {
+export default function StockDetail({navigation}) {
     const [currentValue, setCurrentValue] = useState({});
     const [favorite, setFavorite] = useState(false);
-    const [stockName, setName] = useState("")
-
- 
+    const [stockName, setName] = useState("");
     
     const BASE = "https://finnhub.io/api/v1/quote?symbol=";
     const TICKER = "MSFT";
@@ -51,7 +49,6 @@ export default function StockDetail() {
     const iconName = 'ios-heart-empty'
     const size = 40
     const color = Colors.DARK_PURPLE
-
     const watchListText = "Add to Watchlist"
   
     return (
