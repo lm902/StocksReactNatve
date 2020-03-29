@@ -1,16 +1,15 @@
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import { NavigationContainer } from '@react-navigation/native';
 import Register from '../components/authenication/Register';
 import Login from '../components/authenication/Login';
-import Profile from '../components/portfolio/Portfolio'
 import StockList from '../components/stockViews/StockList'
-import Sell from '../components/buySell/Sell'
-import Buy from '../components/buySell/Buy'
 import WatchList from '../components/watchlist/WatchList'
-import Search from '../components/search/Search'
 import Home from '../../Home'
-import React from 'react';
+import Portfolio from '../components/portfolio/Portfolio'
+import Search from '../components/search/Search'
+import Buy from '../components/buySell/Buy'
+import Sell from '../components//buySell/Sell'
+import StockDetail from '../components/stockViews/StockDetail'
 
 const Stack = createStackNavigator()
 function AppNavigator() {

@@ -1,21 +1,46 @@
 import React, {Component} from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+import {Text, View, StyleSheet, SafeAreaView, ScrollView, TextInput} from 'react-native'
+import Colors from '../../constants/Colors'
+import StockList from '../stockViews/StockList'
+import SearchBar from './SearchBar'
+
 
 export default class Search extends Component {
-  render () {
-    return (
-      <View style={styles.container}>
-        <Text>Logged in as {window._user.username}</Text>
-      </View>
-    )
-  }
-}
+    constructor(props) {
+    super(props)
+    }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1'
-  }
-})
+    render() {
+        return (
+            <SafeAreaView style={styles.container}>
+            <View>
+                <Text style={styles.title}>Search</Text>
+              <Text>Logged in as {window._user.username}</Text>
+                <SearchBar/>
+                <ScrollView style={styles.scrollView}>
+                <StockList />
+                </ScrollView>
+            </View>
+            </SafeAreaView>
+        )
+    }
+    }
+    const styles = StyleSheet.create({
+        container: {
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: Colors.BACKGROUND_COLOR,
+        paddingHorizontal: 40
+        },
+        title: {
+            textAlign: 'left',
+            marginBottom: 30,
+            fontWeight: 'bold',
+            fontSize: 24,
+            color: Colors.GREY
+        },
+        scrollView: {
+            marginTop: 50
+        }
+    });
+

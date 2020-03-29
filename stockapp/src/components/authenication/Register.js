@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { Alert, Button, TextInput, View, StyleSheet, Image, Text, Dimensions, SafeAreaView } from 'react-native';
 import Colors from '../../constants/Colors'
-import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
 export default class Register extends Component {
