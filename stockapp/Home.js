@@ -36,25 +36,24 @@ function PortfolioStackNav() {
   )
 }
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
-export default function Home() {
+export default function Home () {
   return (
-      <Tab.Navigator
-        screenOptions={({ route}) => ({
-          tabBarIcon: ({ focused, color, size}) => {
-            let iconName;
+    <Tab.Navigator
+      screenOptions={({ route}) => ({
+        tabBarIcon: ({ focused, color, size}) => {
+          let iconName
 
-            if (route.name === "Search") {
-              iconName = focused
+            if (route.name === 'Search') {
+            iconName = focused
               ? 'ios-search'
               : 'ios-search'
-            } else if (route.name === "WatchList") {
+          } else if (route.name === 'WatchList') {
             iconName = focused ? 'ios-heart' : 'ios-heart-empty'
-            } else if (route.name === "Portfolio") {
-              iconName = focused ?  'ios-person' : 'ios-person'
-            }
-
+          } else if (route.name === 'Portfolio') {
+            iconName = focused ? 'ios-person' : 'ios-person'
+          }
             return <Ionicons name={iconName} size={size} color={color} />
           },
         })}

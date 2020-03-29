@@ -15,6 +15,7 @@ export default class Search extends Component {
             <SafeAreaView style={styles.container}>
             <View>
                 <Text style={styles.title}>Search</Text>
+              <Text>Logged in as {window._user.username}</Text>
                 <SearchBar/>
                 <ScrollView style={styles.scrollView}>
                 <StockList />
@@ -42,3 +43,4 @@ export default class Search extends Component {
             marginTop: 50
         }
     });
+

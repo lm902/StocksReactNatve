@@ -26,16 +26,15 @@ export default class Login extends Component {
       body: JSON.stringify({ email, password })
     })
     const user = await r.json()
-    user.error ? console.error('Login error', user.error) : console.warn('Login successful', user)
+    user.error && alert(user.error)
+    if (!user.error) {
+      window._user = user
+      this.props.navigation.navigate('Home')
+    }
     // Now do something with the user
   }
 
 static navigationOptions = { title: 'Login'}
-
-onSubmit() {
-    const { email, password } = this.state;
-    this.props.navigation.navigate('Home')
- }
  
  render() {
     
@@ -49,7 +48,9 @@ onSubmit() {
              value={this.state.email}
              onChangeText={(email) => this.setState({email})}
              placeholder={'Email'}
-             style={styles.input} />
+             style={styles.input}
+             textContentType='emailAddress'
+             autoCapitalize='none' />
              <TextInput
              value={this.state.password}
              onChangeText={(password) => this.setState({password})}
