@@ -45,6 +45,14 @@ export default function StockDetail() {
         };
       }, [TICKER])
     );
+
+
+    // REPLACE THESE WITH DYNAMIC VALUES
+    const iconName = 'ios-heart-empty'
+    const size = 40
+    const color = Colors.DARK_PURPLE
+
+    const watchListText = "Add to Watchlist"
   
     return (
       <SafeAreaView style={styles.container}>
@@ -52,8 +60,14 @@ export default function StockDetail() {
     <Text style={styles.stockName}>Microsoft</Text>
         <Text style={styles.stockValue}> Current Value: ${!!currentValue && currentValue.c}
         </Text>
-        <Ionicons name={iconName} size={size} color={color} />
-  
+        <View style={styles.addToWatchList}>
+        <Ionicons 
+          style={styles.icon}
+          name={iconName} 
+          size={size} 
+          color={color} />
+          <Text>{watchListText}</Text>
+      </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonView}>
         <Button 
@@ -75,7 +89,6 @@ export default function StockDetail() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.BACKGROUND_COLOR,
     paddingHorizontal: 40
@@ -102,21 +115,9 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     color: '#555'
   },
-  input: {
-    width: 100,
-    height: 35,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#222',
-    marginBottom: 10,
-    alignSelf: 'center',
-    marginBottom: 20
-  },
-  total: {
-    textAlign:'center',
-    fontSize: 18,
-    marginBottom: 30,
-    color: '#555'
+  addToWatchList: {
+    alignItems: 'center',
+    marginBottom: 50
   },
   buttonContainer: {
     flexDirection: 'row',
