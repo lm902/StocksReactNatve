@@ -3,12 +3,15 @@ import React, { useState } from "react";
 import { SafeAreaView, Text, Button, TextInput,StyleSheet, View, Dimensions } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 import Colors from '../../constants/Colors'
+import {Ionicons} from '@expo/vector-icons'
 // import StkMobile from "../../../../../stk-mobile";
 
 export default function StockDetail() {
     const [currentValue, setCurrentValue] = useState({});
     const [favorite, setFavorite] = useState(false);
     const [stockName, setName] = useState("")
+
+ 
     
     const BASE = "https://finnhub.io/api/v1/quote?symbol=";
     const TICKER = "MSFT";
@@ -49,6 +52,7 @@ export default function StockDetail() {
     <Text style={styles.stockName}>Microsoft</Text>
         <Text style={styles.stockValue}> Current Value: ${!!currentValue && currentValue.c}
         </Text>
+        <Ionicons name={iconName} size={size} color={color} />
   
       <View style={styles.buttonContainer}>
         <View style={styles.buttonView}>
