@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Text, View, StyleSheet, SafeAreaView} from 'react-native'
 import StockList from '../stockViews/StockList'
+import Colors from '../../constants/Colors'
 
 export default class Profile extends Component {
     constructor(props) {
@@ -20,10 +21,10 @@ render() {
 }
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: Colors.BACKGROUND_COLOR,
+    paddingHorizontal: 40
     },
     text: {
         textAlign: 'center'
