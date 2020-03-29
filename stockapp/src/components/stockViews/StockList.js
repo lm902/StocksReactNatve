@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import {Text, View, StyleSheet, FlatList, SafeAreaView, TouchableOpacity} from 'react-native'
 import Colors from '../../constants/Colors'
 import StockItem from './StockItem'
+import StockNav from '../../nav/StockNav'
 
-const StockList = ({ticker, currentValue}) => {
+const StockList = ({navigation}) => {
 
 const stocks = [
     { ticker: 'MFST', name: 'Microsoft', currentValue: '149.70' },
@@ -32,7 +33,8 @@ return (
         data={stocks}
         renderItem={({item}) => {
             return(
-                <TouchableOpacity onPress={() => showDetail(item)}>
+                <TouchableOpacity onPress={() => navigation.navigate('StockDetail')}>
+                {/* <TouchableOpacity onPress={() => showDetail().bind(this)}>  */}
                     <StockItem stock={item} />
                 </TouchableOpacity>
             );
