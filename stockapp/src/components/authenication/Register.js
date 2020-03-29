@@ -17,7 +17,10 @@ export default class Register extends Component {
   async onSubmit () {
     const { email, password, confirmPassword } = this.state
     // We'll want to make sure that the confirmPassword matches password
-    ;(!password || password !== confirmPassword) && console.error('Password is not set or mismatch')
+    if (password !== confirmPassword) {
+      alert('Password mismatch')
+      return
+    }
     const config = require('../../config.json')
     const r = await window.fetch(config.endpoint + '/1.1/users', {
       method: 'POST',
@@ -29,7 +32,11 @@ export default class Register extends Component {
       body: JSON.stringify({ username: email, email, password })
     })
     const user = await r.json()
-    user.error ? console.error('Resgister error', user.error) : console.warn('Resgister successful', user)
+    user.error ? alert(user.error) : alert('Resgister successful')
+    if (!user.error) {
+      window._user = user
+      this.props.navigation.navigate('Home')
+    }
     // Now tell the user to verify their email address or do something with the user
   }
 
@@ -46,7 +53,9 @@ render() {
             value={this.state.email}
             onChangeText={(email) => this.setState({email})}
             placeholder={'Email'}
-            style={styles.input} />
+            style={styles.input}
+            textContentType='emailAddress'
+            autoCapitalize='none' />
             <TextInput
             value={this.state.password}
             onChangeText={(password) => this.setState({password})}
