@@ -3,23 +3,37 @@ import { Alert, Button, TextInput, View, StyleSheet, Image, Text, Dimensions, Sa
 import Colors from '../../constants/Colors'
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
- export default class Register extends Component {
-     constructor(props) {
-     super(props)
 
-     this.state = {
-         email: "",
-         password: "",
-         confirmPassword: ""
-     }
- }
+export default class Register extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      email: '',
+      password: '',
+      confirmPassword: ''
+    }
+  }
+  async onSubmit () {
+    const { email, password, confirmPassword } = this.state
+    // We'll want to make sure that the confirmPassword matches password
+    ;(!password || password !== confirmPassword) && console.error('Password is not set or mismatch')
+    const config = require('../../config.json')
+    const r = await window.fetch(config.endpoint + '/1.1/users', {
+      method: 'POST',
+      headers: {
+        'X-LC-Id': config.appId,
+        'X-LC-Key': config.appKey,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username: email, email, password })
+    })
+    const user = await r.json()
+    user.error ? console.error('Resgister error', user.error) : console.warn('Resgister successful', user)
+    // Now tell the user to verify their email address or do something with the user
+  }
 
  static navigationOptions = { title: 'Register'}
-
- onSubmit() {
-    const { email, password } = this.state;
-    this.props.navigation.navigate('Home')
-}
 
 render() { 
     return(
@@ -55,8 +69,7 @@ render() {
             <Text style={styles.linkText}>Already have an account? <Text style={styles.link} onPress={() => {this.props.navigation.navigate('Login')}}>Sign in</Text> </Text>
         </SafeAreaView>
     )
-}
-
+  }
 }
 const styles = StyleSheet.create({
     container: {
@@ -91,3 +104,4 @@ const styles = StyleSheet.create({
         width: 200
     }
   });
+

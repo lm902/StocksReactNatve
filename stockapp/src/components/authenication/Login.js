@@ -4,14 +4,31 @@ import Colors from '../../constants/Colors'
 import Home from '../../../Home'
 
 export default class Login extends Component {
-    constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
-        email: "",
-        password: ""
+      email: '',
+      password: ''
     }
-}
+  }
+
+  async onSubmit () {
+    const { email, password } = this.state
+    const config = require('../../config.json')
+    const r = await window.fetch(config.endpoint + '/1.1/login', {
+      method: 'POST',
+      headers: {
+        'X-LC-Id': config.appId,
+        'X-LC-Key': config.appKey,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    })
+    const user = await r.json()
+    user.error ? console.error('Login error', user.error) : console.warn('Login successful', user)
+    // Now do something with the user
+  }
 
 static navigationOptions = { title: 'Login'}
 
@@ -49,8 +66,7 @@ onSubmit() {
             <Text style={styles.linkText}>Don't have an account? <Text style={styles.link} onPress={() => {this.props.navigation.navigate("Register")}}>Register</Text> </Text>
         </SafeAreaView>
     )
-}
-
+  }
 }
 
 const styles = StyleSheet.create({

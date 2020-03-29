@@ -12,8 +12,7 @@ import Search from '../components/search/Search'
 import Home from '../../Home'
 import React from 'react';
 
-const Stack = createStackNavigator ();
-
+const Stack = createStackNavigator()
 function AppNavigator() {
     return (
         <Stack.Navigator 
@@ -37,4 +36,4 @@ function AppNavigator() {
         </Stack.Navigator>
     )}
 
-export default AppNavigator;
+export default AppNavigator
