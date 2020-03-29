@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
-import {Text, View, StyleSheet, SafeAreaView, ScrollView} from 'react-native'
+import {Text, View, StyleSheet, SafeAreaView, ScrollView, TextInput} from 'react-native'
 import Colors from '../../constants/Colors'
 import StockList from '../stockViews/StockList'
+import SearchBar from './SearchBar'
+
 
 export default class Search extends Component {
     constructor(props) {
@@ -13,7 +15,8 @@ export default class Search extends Component {
             <SafeAreaView style={styles.container}>
             <View>
                 <Text style={styles.title}>Search</Text>
-                <ScrollView>
+                <SearchBar/>
+                <ScrollView style={styles.scrollView}>
                 <StockList />
                 </ScrollView>
             </View>
@@ -30,9 +33,12 @@ export default class Search extends Component {
         },
         title: {
             textAlign: 'left',
-            marginBottom: 50,
+            marginBottom: 30,
             fontWeight: 'bold',
             fontSize: 24,
             color: Colors.GREY
+        },
+        scrollView: {
+            marginTop: 50
         }
     });
