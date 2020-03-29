@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-import { Alert, Button, TextInput, View, StyleSheet, Image, Text, TouchableText } from 'react-native';
+import { Alert, Button, TextInput, View, StyleSheet, Image, Text, Dimensions, SafeAreaView } from 'react-native';
+import Colors from '../../constants/Colors'
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
  export default class Register extends Component {
      constructor(props) {
@@ -12,15 +14,16 @@ import { Alert, Button, TextInput, View, StyleSheet, Image, Text, TouchableText 
      }
  }
 
+ static navigationOptions = { title: 'Register'}
+
  onSubmit() {
     const { email, password } = this.state;
-    Alert.alert('Credentials', `${email} + ${password}`)
-    this.signup(email, password)
+    this.props.navigation.navigate('Home')
 }
 
-render() {
+render() { 
     return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Image
             source={require('../../../assets/logo-dark.png')}
             style={styles.logo}
@@ -45,12 +48,12 @@ render() {
             <View style={styles.buttonView}>
             <Button
             title={'Register'}
-            color="#7174d8"
+            color={Colors.PURPLE}
             onPress={this.onSubmit.bind(this)}
             />
             </View>
             <Text style={styles.linkText}>Already have an account? <Text style={styles.link} onPress={() => {this.props.navigation.navigate('Login')}}>Sign in</Text> </Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -60,7 +63,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
+      backgroundColor: Colors.BACKGROUND_COLOR,
     },
     input: {
       width: 200,
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     link: {
-        color: '#2096F3'
+        color: Colors.LINK_BLUE
     },
     buttonView: {
         width: 200

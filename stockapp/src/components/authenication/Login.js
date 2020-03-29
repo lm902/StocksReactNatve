@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-import { Alert, Button, TextInput, View, StyleSheet, Image, Text} from 'react-native';
+import { Alert, Button, TextInput, View, StyleSheet, Image, Text, SafeAreaView} from 'react-native';
+import Colors from '../../constants/Colors'
+import Home from '../../../Home'
 
 export default class Login extends Component {
     constructor(props) {
@@ -11,15 +13,17 @@ export default class Login extends Component {
     }
 }
 
+static navigationOptions = { title: 'Login'}
+
 onSubmit() {
     const { email, password } = this.state;
-    Alert.alert('Credentials', `${email} + ${password}`)
-    this.signup(email, password)
+    this.props.navigation.navigate('Home')
  }
  
  render() {
+    
      return(
-         <View style={styles.container}>
+         <SafeAreaView style={styles.container}>
              <Image
              source={require('../../../assets/logo-dark.png')}
              style={styles.logo}
@@ -38,12 +42,12 @@ onSubmit() {
             <View style={styles.buttonView}>
             <Button
             title={'Login'}
-            color="#7174d8"
+            color={Colors.PURPLE}
             onPress={this.onSubmit.bind(this)}
             />
             </View>
             <Text style={styles.linkText}>Don't have an account? <Text style={styles.link} onPress={() => {this.props.navigation.navigate("Register")}}>Register</Text> </Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -54,7 +58,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
+      backgroundColor: Colors.BACKGROUND_COLOR,
     },
     input: {
       width: 200,
@@ -76,7 +80,7 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     link: {
-        color: '#2096F3'
+        color: Colors.LINK_BLUE,
     },
     buttonView: {
         width: 200
