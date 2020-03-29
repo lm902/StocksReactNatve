@@ -1,21 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, StyleSheet, SafeAreaView } from 'react-native';
+import Home from './Home'
+import Login from './src/components/authenication/Login'
+import Register from './src/components/authenication/Register'
+import Colors from './src/constants/Colors'
+import Portfolio from './src/components/portfolio/Portfolio'
+import WatchList from './src/components/watchlist/WatchList'
+import Search from './src/components/search/Search'
+import { NavigationContainer, } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons} from '@expo/vector-icons';
+import { createStackNavigator } from '@react-navigation/stack';
 import AppNavigator from './src/nav/AppNavigation';
+import { createSwitchNavigator } from 'react-navigation';
 
-function App() {
+export default function App() {
+  
   return (
-    <AppNavigator />
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+
   );
 }
-
-export default App;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.BACKGROUND_COLOR,
     alignItems: 'center',
     justifyContent: 'center',
-    color: '#444'
+    color: '#444',
   },
 });
