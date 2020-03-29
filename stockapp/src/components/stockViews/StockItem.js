@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
         paddingBottom: 15,
         borderBottomColor: Colors.GREY,
         borderBottomWidth: 1,
-        marginBottom: 15
+        marginBottom: 15,
+        flexGrow: 1
     },
     stockTicker: {
         fontWeight: 'bold',
