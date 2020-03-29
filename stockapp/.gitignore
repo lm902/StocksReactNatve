@@ -100,3 +100,7 @@ RNTester/Pods/*
 # Visual studio
 .vscode
 .vs
+
+web-build
+node_modules
+cache
